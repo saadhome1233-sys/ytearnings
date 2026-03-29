@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 // Utility functions to extract info from URL
 function extractVideoId(url) {
@@ -50,7 +49,7 @@ async function extractChannelId(url) {
                     part: 'snippet',
                     q: handle,
                     type: 'channel',
-                    key: YOUTUBE_API_KEY
+                    key: process.env.YOUTUBE_API_KEY
                 }
             });
             if (response.data.items && response.data.items.length > 0) {
@@ -69,6 +68,10 @@ app.post('/api/analyze', async (req, res) => {
     if (!url) {
         return res.status(400).json({ error: 'URL is required.' });
     }
+    
+    if (!process.env.YOUTUBE_API_KEY) {
+        return res.status(500).json({ error: 'Server configuration error: YOUTUBE_API_KEY is missing from Environment Variables. Please add it to your Vercel project settings.' });
+    }
 
     try {
         const videoId = extractVideoId(url);
@@ -79,7 +82,7 @@ app.post('/api/analyze', async (req, res) => {
                 params: {
                     part: 'statistics,snippet,contentDetails',
                     id: videoId,
-                    key: YOUTUBE_API_KEY
+                    key: process.env.YOUTUBE_API_KEY
                 }
             });
 
@@ -133,7 +136,7 @@ app.post('/api/analyze', async (req, res) => {
                 params: {
                     part: 'statistics,snippet',
                     id: channelId,
-                    key: YOUTUBE_API_KEY
+                    key: process.env.YOUTUBE_API_KEY
                 }
             });
 
@@ -179,8 +182,8 @@ app.post('/api/analyze', async (req, res) => {
         return res.status(400).json({ error: 'Invalid URL. Please provide a valid YouTube Video or Channel URL.' });
 
     } catch (error) {
-        console.error('API Error:', error.message);
-        return res.status(500).json({ error: 'Error fetching data from YouTube API.' });
+        console.error('API Error:', error.response?.data?.error?.message || error.message);
+        return res.status(500).json({ error: error.response?.data?.error?.message || 'Error fetching data from YouTube API.' });
     }
 });
 
