@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta name="google-site-verification" content="gmOTTzWonHM7NLr63_rl_QsZj4XMq4T3RCO4mXcEKqc" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Earnings Estimator | YouTube Earnings Calculator & Analyzer</title>
-    <meta name="description" content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
-    <meta name="keywords" content="YouTube earnings calculator, social earnings estimator, YouTube money calculator, check YouTube income, channel earnings, YouTube analyzer, video revenue estimator, Adsense calculator">
+    <meta name="description"
+        content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
+    <meta name="keywords"
+        content="YouTube earnings calculator, social earnings estimator, YouTube money calculator, check YouTube income, channel earnings, YouTube analyzer, video revenue estimator, Adsense calculator">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Favicon and Search Engine Logo -->
     <link rel="icon" type="image/png" href="/logo.png">
     <link rel="shortcut icon" href="/logo.png">
     <link rel="apple-touch-icon" href="/logo.png">
-    <meta name="thumbnail" content="https://socialearningsestimator.com/logo.png">
-    
+    <meta name="thumbnail" content="https://ytearnings.vercel.app/logo.png">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://socialearningsestimator.com/">
+    <meta property="og:url" content="https://ytearnings.vercel.app/">
     <meta property="og:title" content="Social Earnings Estimator | YouTube Earnings Calculator & Analyzer">
-    <meta property="og:description" content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
-    <meta property="og:image" content="https://socialearningsestimator.com/logo.png">
+    <meta property="og:description"
+        content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
+    <meta property="og:image" content="https://ytearnings.vercel.app/logo.png">
     <meta property="og:site_name" content="Social Earnings Estimator">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://socialearningsestimator.com/">
+    <meta property="twitter:url" content="https://ytearnings.vercel.app/">
     <meta property="twitter:title" content="Social Earnings Estimator | YouTube Earnings Calculator & Analyzer">
-    <meta property="twitter:description" content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
-    <meta property="twitter:image" content="https://socialearningsestimator.com/logo.png">
-    
-    <meta itemprop="image" content="https://socialearningsestimator.com/logo.png">
+    <meta property="twitter:description"
+        content="Calculate and estimate your YouTube Channel and Video earnings based on views and dynamic CPM rates. Free social media earnings analyzer to check YouTube income potential.">
+    <meta property="twitter:image" content="https://ytearnings.vercel.app/logo.png">
+
+    <meta itemprop="image" content="https://ytearnings.vercel.app/logo.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://socialearningsestimator.com/">
+    <link rel="canonical" href="https://ytearnings.vercel.app/">
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -44,7 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -67,13 +72,23 @@
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .glowing-text {
             text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
         }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -81,17 +96,21 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-black dark:text-gray-100 min-h-screen">
-    
+
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm border-b dark:border-gray-800">
+    <nav
+        class="sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm border-b dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2">
                     <i class="fa-brands fa-youtube text-red-500 text-2xl"></i>
-                    <span class="font-bold text-xl tracking-tight">Social<span class="text-red-500">Earnings</span></span>
+                    <span class="font-bold text-xl tracking-tight">Social<span
+                            class="text-red-500">Earnings</span></span>
                 </div>
-                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                <button id="theme-toggle"
+                    class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i id="theme-toggle-icon" class="fa-solid fa-moon text-gray-500 dark:text-gray-400"></i>
                 </button>
             </div>
@@ -106,95 +125,111 @@
                 Calculate Your <span class="text-red-500 glowing-text">YouTube Potential</span>
             </h1>
             <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Paste any YouTube channel identifier or video URL to discover estimated earnings based on real-time statistics and dynamic CPM ranges.
+                Paste any YouTube channel identifier or video URL to discover estimated earnings based on real-time
+                statistics and dynamic CPM ranges.
             </p>
             <p class="text-xs text-gray-500 max-w-xl mx-auto italic">
-                * This is an estimate based on industry average CPMs. Actual earnings are private and may vary significantly based on niche, geography, and engagement.
+                * This is an estimate based on industry average CPMs. Actual earnings are private and may vary
+                significantly based on niche, geography, and engagement.
             </p>
         </div>
 
         <!-- Tabs -->
         <div class="flex justify-center mb-8 fade-in">
             <div class="bg-white dark:bg-gray-800 p-1 rounded-xl shadow-sm border dark:border-gray-700 flex space-x-1">
-                <button id="tab-analyze" class="px-6 py-2.5 rounded-lg text-sm font-medium transition-all bg-red-600 text-white shadow-md">Single Analyze</button>
-                <button id="tab-compare" class="px-6 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all">Compare</button>
+                <button id="tab-analyze"
+                    class="px-6 py-2.5 rounded-lg text-sm font-medium transition-all bg-red-600 text-white shadow-md">Single
+                    Analyze</button>
+                <button id="tab-compare"
+                    class="px-6 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all">Compare</button>
             </div>
         </div>
 
         <!-- Single Analyze View -->
         <div id="analyze-view">
             <!-- Input Section -->
-        <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border dark:border-gray-700 fade-in">
-            <div class="p-8">
-                <form id="analyze-form" class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <i class="fa-solid fa-link text-gray-400"></i>
+            <div
+                class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border dark:border-gray-700 fade-in">
+                <div class="p-8">
+                    <form id="analyze-form" class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1 relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-link text-gray-400"></i>
+                            </div>
+                            <input type="text" id="url-input" required
+                                class="w-full pl-11 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-gray-900 dark:text-gray-100 placeholder-gray-400"
+                                placeholder="e.g., https://youtube.com/watch?v=... or @PewDiePie">
                         </div>
-                        <input type="text" id="url-input" required 
-                            class="w-full pl-11 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-gray-900 dark:text-gray-100 placeholder-gray-400"
-                            placeholder="e.g., https://youtube.com/watch?v=... or @PewDiePie">
-                    </div>
-                    <button type="submit" id="submit-btn" class="py-4 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group transform active:scale-95">
-                        <span>Analyze</span>
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </form>
-                
-                <!-- Loading State -->
-                <div id="loading-spinner" class="hidden mt-6 flex flex-col items-center justify-center space-y-4">
-                    <div class="w-10 h-10 border-4 border-red-200 border-t-red-600 rounded-full animate-spin"></div>
-                    <p class="text-gray-500 font-medium animate-pulse">Analyzing stats...</p>
-                </div>
-                
-                <!-- Error Message -->
-                <div id="error-message" class="hidden mt-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl border border-red-200 dark:border-red-800 flex items-start gap-3 fade-in">
-                    <i class="fa-solid fa-circle-exclamation mt-1"></i>
-                    <p id="error-text" class="font-medium"></p>
-                </div>
-            </div>
-        </div>
+                        <button type="submit" id="submit-btn"
+                            class="py-4 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group transform active:scale-95">
+                            <span>Analyze</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </form>
 
-        <!-- Results Section (Hidden by default) -->
-        <div id="results-container" class="hidden mt-12 space-y-8 fade-in">
-            
-            <!-- Header Card for Profile/Video -->
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border dark:border-gray-700 p-6 flex flex-col md:flex-row items-center gap-6">
-                <img id="result-thumbnail" src="" alt="Thumbnail" class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white dark:border-gray-700">
-                <div class="text-center md:text-left flex-1">
-                    <span id="result-badge" class="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400 text-sm font-bold rounded-full mb-2 inline-block"></span>
-                    <h2 id="result-title" class="text-2xl md:text-3xl font-bold mb-2 line-clamp-2"></h2>
-                    <div id="result-stats-row" class="flex flex-wrap justify-center md:justify-start gap-4 text-gray-600 dark:text-gray-400 font-medium">
-                        <!-- Filled via JS -->
+                    <!-- Loading State -->
+                    <div id="loading-spinner" class="hidden mt-6 flex flex-col items-center justify-center space-y-4">
+                        <div class="w-10 h-10 border-4 border-red-200 border-t-red-600 rounded-full animate-spin"></div>
+                        <p class="text-gray-500 font-medium animate-pulse">Analyzing stats...</p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message"
+                        class="hidden mt-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl border border-red-200 dark:border-red-800 flex items-start gap-3 fade-in">
+                        <i class="fa-solid fa-circle-exclamation mt-1"></i>
+                        <p id="error-text" class="font-medium"></p>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Earnings Cards -->
-                <div class="lg:col-span-2 space-y-8">
-                    <h3 class="text-2xl font-bold flex items-center gap-2"><i class="fa-solid fa-sack-dollar text-green-500"></i> Estimated Earnings</h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="earnings-cards-container">
-                        <!-- Populated by JS -->
-                    </div>
+            <!-- Results Section (Hidden by default) -->
+            <div id="results-container" class="hidden mt-12 space-y-8 fade-in">
 
-                    <!-- Chart Container -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700 w-full h-64 md:h-80 relative">
-                        <canvas id="earningsChart"></canvas>
+                <!-- Header Card for Profile/Video -->
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border dark:border-gray-700 p-6 flex flex-col md:flex-row items-center gap-6">
+                    <img id="result-thumbnail" src="" alt="Thumbnail"
+                        class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white dark:border-gray-700">
+                    <div class="text-center md:text-left flex-1">
+                        <span id="result-badge"
+                            class="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400 text-sm font-bold rounded-full mb-2 inline-block"></span>
+                        <h2 id="result-title" class="text-2xl md:text-3xl font-bold mb-2 line-clamp-2"></h2>
+                        <div id="result-stats-row"
+                            class="flex flex-wrap justify-center md:justify-start gap-4 text-gray-600 dark:text-gray-400 font-medium">
+                            <!-- Filled via JS -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- Extra Info / Side Panel -->
-                <div class="space-y-6">
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700">
-                        <h4 class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Metrics Analysis</h4>
-                        <ul class="space-y-4" id="metrics-list">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Earnings Cards -->
+                    <div class="lg:col-span-2 space-y-8">
+                        <h3 class="text-2xl font-bold flex items-center gap-2"><i
+                                class="fa-solid fa-sack-dollar text-green-500"></i> Estimated Earnings</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="earnings-cards-container">
                             <!-- Populated by JS -->
-                        </ul>
+                        </div>
+
+                        <!-- Chart Container -->
+                        <div
+                            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700 w-full h-64 md:h-80 relative">
+                            <canvas id="earningsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Extra Info / Side Panel -->
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700">
+                            <h4
+                                class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">
+                                Metrics Analysis</h4>
+                            <ul class="space-y-4" id="metrics-list">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
 
@@ -203,7 +238,8 @@
 
         <!-- Compare View -->
         <div id="compare-view" class="hidden fade-in space-y-8">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border dark:border-gray-700">
+            <div
+                class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border dark:border-gray-700">
                 <div class="p-8">
                     <form id="compare-form" class="flex flex-col gap-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -211,7 +247,7 @@
                                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                     <i class="fa-solid fa-link text-gray-400"></i>
                                 </div>
-                                <input type="text" id="url-input-1" required 
+                                <input type="text" id="url-input-1" required
                                     class="w-full pl-11 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-gray-900 dark:text-gray-100 placeholder-gray-400"
                                     placeholder="First Video or Channel URL">
                             </div>
@@ -219,25 +255,28 @@
                                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                     <i class="fa-solid fa-link text-gray-400"></i>
                                 </div>
-                                <input type="text" id="url-input-2" required 
+                                <input type="text" id="url-input-2" required
                                     class="w-full pl-11 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-gray-900 dark:text-gray-100 placeholder-gray-400"
                                     placeholder="Second Video or Channel URL">
                             </div>
                         </div>
-                        <button type="submit" id="compare-btn" class="w-full py-4 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group transform active:scale-95">
+                        <button type="submit" id="compare-btn"
+                            class="w-full py-4 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group transform active:scale-95">
                             <i class="fa-solid fa-code-compare"></i>
                             <span>Compare Now</span>
                         </button>
                     </form>
-                    
+
                     <!-- Loading State -->
-                    <div id="compare-loading-spinner" class="hidden mt-6 flex flex-col items-center justify-center space-y-4">
+                    <div id="compare-loading-spinner"
+                        class="hidden mt-6 flex flex-col items-center justify-center space-y-4">
                         <div class="w-10 h-10 border-4 border-red-200 border-t-red-600 rounded-full animate-spin"></div>
                         <p class="text-gray-500 font-medium animate-pulse">Comparing stats...</p>
                     </div>
-                    
+
                     <!-- Error Message -->
-                    <div id="compare-error-message" class="hidden mt-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl border border-red-200 dark:border-red-800 flex items-start gap-3">
+                    <div id="compare-error-message"
+                        class="hidden mt-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl border border-red-200 dark:border-red-800 flex items-start gap-3">
                         <i class="fa-solid fa-circle-exclamation mt-1"></i>
                         <p id="compare-error-text" class="font-medium"></p>
                     </div>
@@ -250,8 +289,9 @@
                 <!-- Result Box 2 -->
                 <div id="compare-box-2" class="space-y-6"></div>
             </div>
-            
-            <div id="compare-chart-container" class="hidden mt-8 max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700 fade-in w-full h-64 md:h-80 relative">
+
+            <div id="compare-chart-container"
+                class="hidden mt-8 max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow border dark:border-gray-700 fade-in w-full h-64 md:h-80 relative">
                 <canvas id="compareChart"></canvas>
             </div>
         </div>
@@ -260,10 +300,12 @@
     <!-- Footer -->
     <footer class="mt-20 border-t dark:border-gray-800 bg-white/50 dark:bg-black/50">
         <div class="max-w-7xl mx-auto px-4 py-8 text-center text-sm text-gray-500">
-            <p>&copy; 2026 Social Earnings Estimator. Built with <i class="fa-solid fa-heart text-red-500 px-1"></i>.</p>
+            <p>&copy; 2026 Social Earnings Estimator. Built with <i class="fa-solid fa-heart text-red-500 px-1"></i>.
+            </p>
         </div>
     </footer>
 
     <script src="app.js"></script>
 </body>
+
 </html>
